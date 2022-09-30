@@ -1,5 +1,5 @@
 // Esse reducer será responsável por tratar as informações da pessoa usuária
-import { GET_EMAIL } from '../actions';
+import { SAVE_EMAIL } from '../actions';
 
 const INITIAL_STATE = {
   email: '',
@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 
 const user = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-  case GET_EMAIL:
+  case SAVE_EMAIL:
     return {
       ...state,
       email: action.payload,

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class Header extends Component {
   render() {
     const { email } = this.props;
-    console.log(email);
+
     return (
       <div>
         <span
@@ -33,7 +33,8 @@ Header.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  email: state.user.email,
+  // email: state.user.email,
+  ...state.user,
 });
 
 export default connect(mapStateToProps, null)(Header);
