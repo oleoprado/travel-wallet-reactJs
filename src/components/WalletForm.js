@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchApi } from '../redux/actions';
+import { addExpenses, fetchCurrencies, fetchExchangeRates } from '../redux/actions';
 import Input from './Input';
 import Select from './Select';
+import Button from './Button';
 
 const PAGAMENTO_LIST = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
 const TAGS_LIST = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
 
 class WalletForm extends Component {
   state = {
-    valor: '',
-    descricao: '',
-    moeda: '',
-    metodoPagamento: '',
+    id: 0,
+    value: '',
+    description: '',
+    currency: 'USD',
+    method: '',
     tag: '',
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     const { dispatch } = this.props;
-    // this.chamaGetCurrencies();
-    await dispatch(fetchApi());
+    dispatch(fetchCurrencies());
   }
 
   handleChange = ({ target }) => {
@@ -28,17 +29,29 @@ class WalletForm extends Component {
     this.setState({ [name]: value });
   };
 
+  handleBtn = async () => {
+    const { dispatch } = this.props;
+    await dispatch(fetchExchangeRates());
+
+    this.setState((preventState) => ({
+      id: preventState.id + 1,
+    }));
+
+    const { exchangeRates } = this.props;
+    dispatch(addExpenses({ ...this.state, exchangeRates }));
+    this.setState({ value: '', description: '' });
+  };
+
   render() {
     const {
-      valor,
-      descricao,
-      moeda,
-      metodoPagamento,
+      value,
+      description,
+      currency,
+      method,
       tag,
     } = this.state;
 
     const { currencies } = this.props;
-
     return (
       <form>
         <div>WalletForm</div>
@@ -46,33 +59,34 @@ class WalletForm extends Component {
           label="Valor: "
           type="number"
           onChange={ this.handleChange }
-          value={ valor }
-          name="valor"
+          value={ value }
+          name="value"
           datatestid="value-input"
         />
         <Input
           label="Descrição: "
           type="text"
           onChange={ this.handleChange }
-          value={ descricao }
-          name="descricao"
+          value={ description }
+          name="description"
           datatestid="description-input"
         />
         <Select
           label="Moeda: "
           // defaultOption="Selecione"
           onChange={ this.handleChange }
-          value={ moeda }
-          name="moeda"
+          value={ currency }
+          name="currency"
           options={ currencies }
           datatestid="currency-input"
+          required
         />
         <Select
           label="Método de pagamento: "
           // defaultOption="Selecione"
           onChange={ this.handleChange }
-          value={ metodoPagamento }
-          name="metodoPagamento"
+          value={ method }
+          name="method"
           options={ PAGAMENTO_LIST }
           datatestid="method-input"
         />
@@ -84,6 +98,12 @@ class WalletForm extends Component {
           name="tag"
           options={ TAGS_LIST }
           datatestid="tag-input"
+        />
+        <Button
+          type="button"
+          label="Adicionar despesa"
+          onClick={ this.handleBtn }
+          disabled={ false }
         />
       </form>
     );

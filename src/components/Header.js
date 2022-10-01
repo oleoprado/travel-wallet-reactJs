@@ -4,7 +4,11 @@ import PropTypes from 'prop-types';
 
 class Header extends Component {
   render() {
-    const { email } = this.props;
+    const { email, expenses } = this.props;
+    const sumExpenses = expenses
+      .map(({ value, exchangeRates, currency }) => exchangeRates[currency].ask * value)
+      .reduce((prevValue, currValue) => prevValue + currValue, 0);
+    const totalExpenses = sumExpenses.toFixed(2);
 
     return (
       <div>
@@ -16,7 +20,7 @@ class Header extends Component {
         <span
           data-testid="total-field"
         >
-          0
+          { totalExpenses }
         </span>
         <span
           data-testid="header-currency-field"
@@ -33,8 +37,9 @@ Header.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  // email: state.user.email,
-  ...state.user,
+  email: state.user.email,
+  expenses: state.wallet.expenses,
+  // ...state.user, ...state.wallet,
 });
 
 export default connect(mapStateToProps, null)(Header);
