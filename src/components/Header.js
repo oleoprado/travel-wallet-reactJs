@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 class Header extends Component {
   render() {
     const { email, expenses } = this.props;
+
     const sumExpenses = expenses
       .map(({ value, exchangeRates, currency }) => exchangeRates[currency].ask * value)
       .reduce((prevValue, currValue) => prevValue + currValue, 0);
@@ -34,6 +35,7 @@ class Header extends Component {
 
 Header.propTypes = {
   email: PropTypes.string.isRequired,
+  expenses: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 const mapStateToProps = (state) => ({

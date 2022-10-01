@@ -38,6 +38,7 @@ class WalletForm extends Component {
     }));
 
     const { exchangeRates } = this.props;
+    console.log(exchangeRates);
     dispatch(addExpenses({ ...this.state, exchangeRates }));
     this.setState({ value: '', description: '' });
   };
@@ -117,6 +118,15 @@ const mapStateToProps = (state) => ({
 WalletForm.propTypes = {
   dispatch: PropTypes.func.isRequired,
   currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
+  exchangeRates: PropTypes.shape({
+    USD: PropTypes.string,
+  }),
+};
+
+WalletForm.defaultProps = {
+  exchangeRates: {
+    USD: '',
+  },
 };
 
 export default connect(mapStateToProps)(WalletForm);
