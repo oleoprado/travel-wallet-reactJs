@@ -92,5 +92,5 @@ Table.propTypes = {
   })).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
-
+//
 export default connect(mapStateToProps)(Table);
