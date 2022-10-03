@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { deleteExpense } from '../redux/actions';
 import Button from './Button';
 
 class Table extends Component {
+  deleteBtn = (despesa) => {
+    const { dispatch } = this.props;
+    dispatch(deleteExpense(despesa));
+  };
+
   render() {
     const { expenses } = this.props;
 
@@ -24,12 +30,17 @@ class Table extends Component {
         </thead>
         <tbody>
           {
-            expenses.map(({
-              description, tag, method, value, currency, exchangeRates, id,
-            }) => {
+            expenses.map((despesa) => {
+              const { description,
+                tag,
+                method,
+                value,
+                currency,
+                exchangeRates,
+                id } = despesa;
+
               const moedaConversao = 'Real';
               const moedaUtilizado = exchangeRates[currency].name;
-              // const cotacaoAtual = Math.round((+exchangeRates[currency].ask) * 100) / 100;
               const cotacaoAtual = (+exchangeRates[currency].ask);
               const valorConvertido = +(value * cotacaoAtual);
 
@@ -52,10 +63,12 @@ class Table extends Component {
                       disabled={ false }
                     />
                     <Button
+                      id={ id }
                       type="button"
                       label="Excluir"
-                      // onClick={ }
+                      onClick={ () => this.deleteBtn(despesa) }
                       disabled={ false }
+                      datatestid="delete-btn"
                     />
                   </td>
                 </tr>
@@ -74,7 +87,10 @@ const mapStateToProps = (state) => ({
 });
 
 Table.propTypes = {
-  expenses: PropTypes.arrayOf(PropTypes.string).isRequired,
+  expenses: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.string,
+  })).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps)(Table);
