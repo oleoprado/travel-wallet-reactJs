@@ -61,6 +61,7 @@ class Table extends Component {
                       label="Editar"
                       // onClick={ }
                       disabled={ false }
+                      datatestid="edit-btn"
                     />
                     <Button
                       id={ id }
