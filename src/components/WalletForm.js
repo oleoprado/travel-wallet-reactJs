@@ -38,7 +38,7 @@ class WalletForm extends Component {
     }));
 
     const { exchangeRates } = this.props;
-    console.log(exchangeRates);
+
     dispatch(addExpenses({ ...this.state, exchangeRates }));
     this.setState({ value: '', description: '' });
   };
