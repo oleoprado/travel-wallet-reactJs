@@ -47,7 +47,7 @@ export function fetchExchangeRates() {
       const data = await response.json();
 
       delete (data.USDT);
-
+      console.log(data);
       dispatch(getCotacaoMomento(data));
     } catch (err) {
       console.log(err);
