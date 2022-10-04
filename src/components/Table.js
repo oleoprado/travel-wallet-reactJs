@@ -50,14 +50,13 @@ class Table extends Component {
                   <td>{ description }</td>
                   <td>{ tag }</td>
                   <td>{ method}</td>
-                  <td>{ (+value).toFixed(2) }</td>
+                  <td>{ Number((value)).toFixed(2) }</td>
                   <td>{ moedaUtilizado }</td>
                   <td>{ cotacaoAtual.toFixed(2) }</td>
                   <td>{ valorConvertido.toFixed(2) }</td>
                   <td>{ moedaConversao }</td>
                   <td>
                     <Button
-                      type="button"
                       label="Editar"
                       onClick={ () => dispatch(editExpense(id)) }
                       disabled={ false }
@@ -65,7 +64,6 @@ class Table extends Component {
                     />
                     <Button
                       id={ id }
-                      type="button"
                       label="Excluir"
                       onClick={ () => this.deleteBtn(despesa) }
                       disabled={ false }

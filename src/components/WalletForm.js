@@ -29,14 +29,17 @@ class WalletForm extends Component {
   }
 
   componentDidUpdate(_prevProps, prevState) {
-    const { expenses, idToEdit } = this.props;
+    const { expenses, idToEdit, editor } = this.props;
 
     const expense = expenses.find((e) => e.id === idToEdit);
     const currentStateXprevState = (
       JSON.stringify(this.state) === JSON.stringify(prevState)
     );
+    const verifyIfEdit = expense && editor;
+console.log('this state =>', this.state);
+console.log('prevstate =>', prevState);
 
-    if (expense && currentStateXprevState) {
+    if (verifyIfEdit && currentStateXprevState) {
       this.setState({ ...expense });
     }
   }
@@ -122,7 +125,6 @@ class WalletForm extends Component {
           datatestid="tag-input"
         />
         <Button
-          type="button"
           label={ editor ? 'Editar despesa' : 'Adicionar despesa' }
           onClick={ this.handleBtn }
           disabled={ false }

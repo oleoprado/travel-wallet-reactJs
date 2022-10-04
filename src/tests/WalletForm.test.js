@@ -30,7 +30,7 @@ describe('Testando o componente WalletForm', () => {
   //   expect(history.location.pathname).toBe('/carteira');
   // });
 
-  it('teste mock', () => {
+  it('verifica se é feito 2 chamadas para Api após clicar no btn adicionar despesa', () => {
     global.fetch = jest.fn(() => Promise.resolve({
       json: () => Promise.resolve(mockData),
     }));

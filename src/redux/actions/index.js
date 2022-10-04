@@ -2,7 +2,6 @@
 export const SAVE_EMAIL = 'SAVE_EMAIL';
 export const REQUEST_API = 'REQUEST_API';
 export const GET_CURRENCIES = 'GET_CURRENCIES';
-export const GET_CURRENCIES_FAIL = 'GET_CURRENCIES_FAIL';
 export const ADD_EXPENSES = 'ADD_EXPENSES';
 export const GET_COTACAO = 'GET_COTACAO';
 export const DELETE_EXPENSE = 'DELETE_EXPENSE';
@@ -21,8 +20,6 @@ export const getCurrencies = (payload) => ({ type: GET_CURRENCIES, payload });
 export const addExpenses = (payload) => ({ type: ADD_EXPENSES, payload });
 
 export const deleteExpense = (payload) => ({ type: DELETE_EXPENSE, payload });
-
-export const getCurrenciesFail = () => ({ type: GET_CURRENCIES_FAIL });
 
 export const editExpense = (payload) => ({ type: EDIT_EXPENSE, payload });
 

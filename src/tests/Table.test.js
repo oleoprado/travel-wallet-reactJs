@@ -69,4 +69,29 @@ describe('Testando componente Table', () => {
     userEvent.click(deleteBtn);
     expect(deleteBtn).not.toBeInTheDocument();
   });
+
+  it('verifica o type do botão editar', () => {
+    renderWithRouterAndRedux(<Wallet />, { initialState });
+
+    const editBtn = screen.getByRole('button', { name: /editar/i });
+    expect(editBtn.type).toBe('button');
+  });
+
+  it('verifica se edita despesa ao clicar no botao', () => {
+    renderWithRouterAndRedux(<Wallet />, { initialState });
+
+    const editBtn = screen.getByRole('button', { name: /editar/i });
+    userEvent.click(editBtn);
+
+    const inputValue = screen.getByTestId('value-input');
+    userEvent.clear(inputValue);
+    userEvent.type(inputValue, '490');
+
+    const editarDespesaBtn = screen.getByRole('button', { name: /editar despesa/i });
+    userEvent.click(editarDespesaBtn);
+    // screen.debug();
+
+    const valueTable = screen.getByRole('cell', { name: /490\.00/i });
+    expect(valueTable).toBeInTheDocument();
+  });
 });
