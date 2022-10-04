@@ -1,17 +1,17 @@
-// Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
-
 import {
   ADD_EXPENSES,
   DELETE_EXPENSE,
   GET_COTACAO,
   GET_CURRENCIES,
+  EDIT_EXPENSE,
+  UPDATE_EXPENSE,
   REQUEST_API } from '../actions';
 
 const INITIAL_STATE = {
-  currencies: [], // array de string
-  expenses: [], // array de objetos, com cada objeto tendo as chaves id, value, currency, method, tag, description e exchangeRates
-  editor: false, // valor booleano que indica de uma despesa está sendo editada
-  idToEdit: 0, // valor numérico que armazena o id da despesa que esta sendo editada
+  currencies: [],
+  expenses: [],
+  editor: false,
+  idToEdit: null,
   isFetching: false,
 };
 
@@ -42,6 +42,21 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       exchangeRates: action.payload,
+    };
+  case EDIT_EXPENSE:
+    return {
+      ...state,
+      idToEdit: action.payload,
+      editor: true,
+    };
+  case UPDATE_EXPENSE:
+    return {
+      ...state,
+      expenses: [...state.expenses
+        .filter((expense) => expense.id !== state.idToEdit), action.payload]
+        .sort((a, b) => a.id - b.id),
+      idToEdit: null,
+      editor: false,
     };
   default:
     return state;
