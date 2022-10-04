@@ -41,4 +41,19 @@ describe('Testando o componente WalletForm', () => {
 
     expect(global.fetch).toHaveBeenCalledTimes(2);
   });
+
+  it('verifica se uma despesa é criada', () => {
+    renderWithRouterAndRedux(<Wallet />);
+
+    const inputValue = screen.getByTestId('value-input');
+
+    userEvent.type(inputValue, '490');
+
+    const edicionarDespesaBtn = screen.getByRole('button', { name: /adicionar despesa/i });
+    userEvent.click(edicionarDespesaBtn);
+    // screen.debug();
+
+    const valueTable = screen.getByRole('cell', { name: /490\.00/i });
+    expect(valueTable).toBeInTheDocument();
+  });
 });

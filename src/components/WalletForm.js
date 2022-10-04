@@ -36,8 +36,6 @@ class WalletForm extends Component {
       JSON.stringify(this.state) === JSON.stringify(prevState)
     );
     const verifyIfEdit = expense && editor;
-console.log('this state =>', this.state);
-console.log('prevstate =>', prevState);
 
     if (verifyIfEdit && currentStateXprevState) {
       this.setState({ ...expense });
