@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Input from './Input';
 import Select from './Select';
 import Button from './Button';
+import '../styles/wallet.css';
 import {
   addExpenses,
   fetchCurrencies,
@@ -76,58 +77,67 @@ class WalletForm extends Component {
 
     const { currencies, editor } = this.props;
     return (
-      <form>
-        <div>WalletForm</div>
-        <Input
-          label="Valor: "
-          type="number"
-          onChange={ this.handleChange }
-          value={ value }
-          name="value"
-          datatestid="value-input"
-        />
-        <Input
-          label="Descrição: "
-          type="text"
-          onChange={ this.handleChange }
-          value={ description }
-          name="description"
-          datatestid="description-input"
-        />
-        <Select
-          label="Moeda: "
-          // defaultOption="Selecione"
-          onChange={ this.handleChange }
-          value={ currency }
-          name="currency"
-          options={ currencies }
-          datatestid="currency-input"
-          required
-        />
-        <Select
-          label="Método de pagamento: "
-          // defaultOption="Selecione"
-          onChange={ this.handleChange }
-          value={ method }
-          name="method"
-          options={ PAGAMENTO_LIST }
-          datatestid="method-input"
-        />
-        <Select
-          label="Tag: "
-          // defaultOption="Selecione"
-          onChange={ this.handleChange }
-          value={ tag }
-          name="tag"
-          options={ TAGS_LIST }
-          datatestid="tag-input"
-        />
-        <Button
-          label={ editor ? 'Editar despesa' : 'Adicionar despesa' }
-          onClick={ this.handleBtn }
-          disabled={ false }
-        />
-      </form>
+      <div className="container__form">
+        <form className={ editor ? 'form_editor' : 'form_expenses' }>
+          <Input
+            label="Descrição da despesa"
+            type="text"
+            onChange={ this.handleChange }
+            value={ description }
+            name="description"
+            datatestid="description-input"
+            className="input__description"
+          />
+          <Select
+            label="Categoria da despesa"
+            defaultOption="Selecione"
+            onChange={ this.handleChange }
+            value={ tag }
+            name="tag"
+            options={ TAGS_LIST }
+            datatestid="tag-input"
+            className="tag__select"
+          />
+          <Input
+            label="Valor"
+            type="number"
+            onChange={ this.handleChange }
+            value={ value }
+            name="value"
+            datatestid="value-input"
+            className="value__input"
+          />
+          <Select
+            label="Método de pagamento"
+            defaultOption="Selecione"
+            onChange={ this.handleChange }
+            value={ method }
+            name="method"
+            options={ PAGAMENTO_LIST }
+            datatestid="method-input"
+            className="method__select"
+          />
+          <Select
+            label="Moeda"
+            defaultOption="Selecione"
+            onChange={ this.handleChange }
+            value={ currency }
+            name="currency"
+            options={ currencies }
+            datatestid="currency-input"
+            className="currency__select"
+            required
+          />
+        </form>
+        <div className="container__btn">
+          <Button
+            label={ editor ? 'Salvar edição' : 'Adicionar despesa' }
+            onClick={ this.handleBtn }
+            disabled={ false }
+            moreClasses={ editor ? 'btn__add__editor' : 'btn__add__expense' }
+          />
+        </div>
+      </div>
     );
   }
 }

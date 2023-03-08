@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { FaMoneyCheckAlt } from 'react-icons/fa';
+import { CgProfile } from 'react-icons/cg';
+import logo from '../styles/images/logo.png';
+import '../styles/header.css';
 
 class Header extends Component {
   render() {
@@ -12,23 +16,36 @@ class Header extends Component {
     const totalExpenses = sumExpenses.toFixed(2);
 
     return (
-      <div>
-        <span
-          data-testid="email-field"
-        >
-          { email }
-        </span>
-        <span
-          data-testid="total-field"
-        >
-          { totalExpenses }
-        </span>
-        <span
-          data-testid="header-currency-field"
-        >
-          BRL
-        </span>
-      </div>
+      <header>
+        <div className="container__header">
+          <img src={ logo } alt="logo" className="logo__header" />
+          <div className="despesas__header">
+            <div className="icon_expense_header">
+              <FaMoneyCheckAlt size={ 25 } color="#3485FF" />
+              <strong>Tota de despesas:</strong>
+            </div>
+            <div
+              data-testid="total-field"
+            >
+              { totalExpenses }
+            </div>
+            <div
+              data-testid="header-currency-field"
+            >
+              BRL
+            </div>
+          </div>
+          <div
+            data-testid="email-field"
+            className="email_header"
+          >
+            <CgProfile size={ 25 } color="#2FC18C" />
+            <strong>
+              { email }
+            </strong>
+          </div>
+        </div>
+      </header>
     );
   }
 }

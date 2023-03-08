@@ -1,0 +1,56 @@
+.container__table {
+  position: absolute;
+  width: 1255px;
+  height: 634px;
+  left: 92px;
+  top: 120px;
+  background-color: #3485FF;
+  opacity: 0.85;
+  box-shadow: -4px 9px 13px rgb(3 107 82 / 30%);
+  border-radius: 10px;
+  padding: 260px 90px;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+table td, table th {
+  border-bottom: 1px solid #0D114F;
+  padding: 3px 4px;
+}
+
+table tbody td {
+  font-size: 16px;
+  line-height: 20px;
+  padding: 10px 0;
+  color: #0D114F;
+}
+
+table thead th {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  opacity: 0.9;
+  text-align: center;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding: 5px 10px;
+}
+
+table thead th:first-child {
+  border-left: none;
+}
+
+.edit_btn, .delete_btn {
+  border: none;
+  background: none;
+}
+
+.container_btn_table {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}

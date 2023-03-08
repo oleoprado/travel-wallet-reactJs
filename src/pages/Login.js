@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { getEmail } from '../redux/actions';
 import Button from '../components/Button';
 import Input from '../components/Input';
+import '../styles/login.css';
+import logo from '../styles/images/logo.png';
 
 class Login extends React.Component {
   state = {
@@ -37,34 +39,44 @@ class Login extends React.Component {
   };
 
   render() {
+    document.title = 'Home - Trybe Wallet';
     const { email, password, isBtnDisabled } = this.state;
     return (
-      <form>
-        <h1>Login</h1>
-        <Input
-          label="Email"
-          type="email"
-          onChange={ this.handleChange }
-          value={ email }
-          name="email"
-          datatestid="email-input"
-        />
-        <Input
-          label="Senha"
-          type="password"
-          onChange={ this.handleChange }
-          value={ password }
-          name="password"
-          datatestid="password-input"
-        />
-        <Button
-          type="button"
-          label="Entrar"
-          disabled={ isBtnDisabled }
-          onClick={ this.handleBtn }
-        />
+      <div className="page__login">
+        <div className="container__login">
+          <img src={ logo } alt="logo trybeWallet" className="logo" />
+          <form className="form__login">
+            <Input
+              // label="Email"
+              placeholder="Email"
+              type="email"
+              onChange={ this.handleChange }
+              value={ email }
+              name="email"
+              datatestid="email-input"
+              className="input__login"
+            />
+            <Input
+              // label="Senha"
+              placeholder="Senha"
+              type="password"
+              onChange={ this.handleChange }
+              value={ password }
+              name="password"
+              datatestid="password-input"
+              className="input__login"
+            />
+            <Button
+              type="button"
+              label="Entrar"
+              disabled={ isBtnDisabled }
+              onClick={ this.handleBtn }
+              moreClasses="btn__login"
+            />
 
-      </form>
+          </form>
+        </div>
+      </div>
     );
   }
 }

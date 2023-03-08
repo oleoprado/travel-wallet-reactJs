@@ -1,0 +1,83 @@
+
+.page__login {
+  background-image: url('./images/foto\ fundo.png');
+  background-color: #E5E5E5;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.container__login {
+  width: 525px;
+  height: 356px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  box-shadow: -4px 9px 13px rgba(52,133,255, 0.3);
+  border-radius: 10px;
+  gap: 30px;
+  opacity: 0.85;
+}
+
+.form__login {
+  width: 330px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input__login {
+  width: 330px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #A1B2CD;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  padding: 13px 15px;
+  font-size: 16px;
+  color: #0D114F;
+}
+
+.input__login::placeholder {
+  color: #A1B2CD;
+}
+
+.input__login:focus {
+  outline: 1px solid #3485FF;
+}
+
+.input__login:-webkit-autofill:focus {
+  -webkit-text-fill-color: #0D114F;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.btn__login {
+  width: 330px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #3485FF;
+  background-color: #3485FF;
+  color: #E5E5E5;
+  font-size: 18px;
+}
+
+.btn__login:disabled {
+  border: 1px solid #f3f3f3;
+  background-color: #f3f3f3;
+  color: #dddbdb;
+}
+
+.btn__login:hover {
+  font-size: 19px;
+  background-color: rgba(52,133,255, 0.9);
+  /* border: 1px solid rgba(13,17,79, 0.8); */
+}
+

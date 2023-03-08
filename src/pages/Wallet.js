@@ -6,6 +6,7 @@ import Table from '../components/Table';
 
 class Wallet extends React.Component {
   render() {
+    document.title = 'Wallet - Trybe Wallet';
     return (
       <>
         <Header />

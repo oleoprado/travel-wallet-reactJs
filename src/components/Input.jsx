@@ -3,19 +3,28 @@ import PropTypes from 'prop-types';
 
 class Input extends Component {
   render() {
-    const { type, name, label, onChange, value, datatestid } = this.props;
+    const { type,
+      name,
+      className,
+      label,
+      onChange,
+      value,
+      datatestid,
+      placeholder } = this.props;
+
     return (
-      <label className="label" htmlFor={ name }>
+      <label className={ `label label_${name}` } htmlFor={ name }>
         { label }
         <div className="control">
           <input
-            className="input"
+            className={ className }
             type={ type }
             name={ name }
             value={ value }
             onChange={ onChange }
             id={ name }
             data-testid={ datatestid }
+            placeholder={ placeholder }
           />
         </div>
       </label>
@@ -30,6 +39,8 @@ Input.propTypes = {
   name: PropTypes.string,
   onChange: PropTypes.func,
   datatestid: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  className: PropTypes.string,
 };
 
 Input.defaultProps = {
@@ -37,6 +48,8 @@ Input.defaultProps = {
   value: '',
   name: '',
   onChange: null,
+  placeholder: '',
+  className: '',
 };
 
 export default Input;

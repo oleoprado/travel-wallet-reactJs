@@ -1,0 +1,35 @@
+.container__header {
+  width: 80%;
+  background-color: #FFFFFF;
+  opacity: 0.85;
+  margin-left: 10%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+.despesas__header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #3485FF;
+}
+
+.icon_expense_header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo__header {
+  padding-bottom: 23px;
+}
+
+.email_header {
+  color: rgba(47,193,140);
+  width: 240px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

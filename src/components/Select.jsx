@@ -8,9 +8,10 @@ class Select extends Component {
       name,
       onChange,
       value,
-      // defaultOption,
+      defaultOption,
       options,
       datatestid,
+      className,
     } = this.props;
 
     return (
@@ -24,8 +25,9 @@ class Select extends Component {
             onChange={ onChange }
             value={ value }
             data-testid={ datatestid }
+            className={ className }
           >
-            {/* <option>{ defaultOption }</option> */}
+            <option>{ defaultOption }</option>
             {
               options?.map((option, index) => ( // ? "pergunta" se o array existe, se existir executa o map
                 <option key={ index }>{ option }</option>
@@ -43,11 +45,12 @@ Select.propTypes = {
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
   datatestid: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.string,
   ).isRequired,
-  // defaultOption: PropTypes.string.isRequired,
+  defaultOption: PropTypes.string.isRequired,
 };
 
 export default Select;

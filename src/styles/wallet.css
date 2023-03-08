@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-image: url('./images/foto\ fundo.png');
+  background-color: #E5E5E5;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+}
+.container__form {
+  width: 80%;
+  margin-left: 10%;
+  position: absolute;
+  z-index: 1;
+}
+
+.form_expenses {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 140px;
+  background-color: #E1E5EB;
+  gap: 20px;
+}
+
+.form_editor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 140px;
+  background-color: rgba(47,193,140, 0.9);
+  gap: 20px;
+}
+
+.form_editor > label {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.form_expenses > label {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  color: #3485FF;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.input__description {
+  width: 288px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #3485FF;
+  font-size: 14px;
+  padding: 0 5px;
+  color: #0D114F;
+}
+
+.method__select {
+  width: 150px;
+  border-radius: 5px;
+  border: 1px solid #3485FF;
+}
+
+.tag__select {
+  width: 155px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #3485FF;
+}
+
+.value__input {
+  width: 158px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #3485FF;
+  padding: 0 5px;
+}
+
+.method__select {
+  width: 228px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #3485FF;
+}
+
+.currency__select {
+  width: 91px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #3485FF;
+}
+
+.container__btn {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  opacity: 0.85;
+  box-shadow: -4px 9px 13px rgb(5 18 54 / 40%);
+  border-radius: 0 0 10px 10px;
+}
+
+.btn__add__expense {
+  width: 330px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid rgba(47,193,140);
+  background-color: rgba(47,193,140);
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.btn__add__expense:hover {
+  font-size: 16px;
+  background-color: #3485FF;
+  border: 2px solid #3485FF;
+}
+
+.btn__add__editor {
+  width: 330px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid #3485FF;
+  background-color: #3485FF;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.btn__add__editor:hover {
+  font-size: 16px;
+  background-color: rgba(47,193,140);
+  border: 2px solid rgba(47,193,140);
+}
