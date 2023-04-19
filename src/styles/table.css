@@ -54,3 +54,19 @@ table thead th:first-child {
   justify-content: center;
   gap: 25px;
 }
+
+@media screen and (max-width: 480px) {
+  .container__table {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 481px) {
+  .container__table {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+
+}

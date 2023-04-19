@@ -8,8 +8,8 @@ import '../styles/header.css';
 
 class Header extends Component {
   render() {
-    const { email, expenses } = this.props;
-
+    const { expenses } = this.props;
+    const emailStorage = localStorage.getItem('email');
     const sumExpenses = expenses
       .map(({ value, exchangeRates, currency }) => exchangeRates[currency].ask * value)
       .reduce((prevValue, currValue) => prevValue + currValue, 0);
@@ -41,7 +41,7 @@ class Header extends Component {
           >
             <CgProfile size={ 25 } color="#2FC18C" />
             <strong>
-              { email }
+              { emailStorage }
             </strong>
           </div>
         </div>
@@ -51,8 +51,6 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  email: PropTypes.string.isRequired,
-  // expenses: PropTypes.arrayOf(PropTypes.string).isRequired,
   expenses: PropTypes.arrayOf(PropTypes.shape({
     key: PropTypes.string,
   })).isRequired,
