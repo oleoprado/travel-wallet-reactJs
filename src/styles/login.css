@@ -9,26 +9,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
 }
 
 .container__login {
-  width: 525px;
-  height: 356px;
+  width: 32.81rem;
+  height: 22.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #FFFFFF;
   box-shadow: -4px 9px 13px rgba(52,133,255, 0.3);
-  border-radius: 10px;
-  gap: 30px;
+  border-radius: 0.625rem;
+  gap: 1.875rem;
   opacity: 0.85;
 }
 
 .form__login {
-  width: 330px;
-  height: 150px;
+  width: 20.625rem;
+  height: 9.375rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -36,13 +35,13 @@
 }
 
 .input__login {
-  width: 330px;
-  height: 40px;
-  border-radius: 5px;
-  border: 1px solid #A1B2CD;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  padding: 13px 15px;
-  font-size: 16px;
+  width: 20.625rem;
+  height: 2.5rem;
+  border-radius: .3125rem;
+  border: .0625rem solid #A1B2CD;
+  filter: drop-shadow(0rem .25rem .25rem rgba(0, 0, 0, 0.25));
+  padding: .8125rem .9375rem;
+  font-size: 1rem;
   color: #0D114F;
 }
 
@@ -51,7 +50,7 @@
 }
 
 .input__login:focus {
-  outline: 1px solid #3485FF;
+  outline: .0625rem solid #3485FF;
 }
 
 .input__login:-webkit-autofill:focus {
@@ -60,24 +59,64 @@
 }
 
 .btn__login {
-  width: 330px;
-  height: 40px;
-  border-radius: 5px;
-  border: 1px solid #3485FF;
+  width: 20.625rem;
+  height: 2.5rem;
+  border-radius: .3125rem;
+  border: .0625rem solid #3485FF;
   background-color: #3485FF;
   color: #E5E5E5;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .btn__login:disabled {
-  border: 1px solid #f3f3f3;
+  border: .0625rem solid #f3f3f3;
   background-color: #f3f3f3;
   color: #dddbdb;
 }
 
-.btn__login:hover {
-  font-size: 19px;
+.btn__login:enabled:hover {
+  font-size: 1.1875rem;
   background-color: rgba(52,133,255, 0.9);
-  /* border: 1px solid rgba(13,17,79, 0.8); */
 }
 
+@media screen and (max-width: 480px) {
+  .container__login {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    margin: 1rem;
+    gap: 1.5rem;
+  }
+  .form__login {
+    width: 100%;
+    height: auto;
+    gap: 1rem;
+  }
+  .input__login,
+  .label,
+  .btn__login {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .container__login {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1351px) {
+  .container__login {
+    width: 30%;
+  }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .container__login {
+    width: 50%;
+    height: 90%;
+  }
+  .input__login {
+    font-size: 1.2rem;
+  }
+}
